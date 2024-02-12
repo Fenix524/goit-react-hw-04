@@ -1,0 +1,21 @@
+.returnTopBtn{
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+
+    padding: 15px;
+    border-radius: 360px;
+    border: 2px solid  #20568b2e;
+    background-color: #4580bb;
+
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.returnTopBtn:hover{    
+    background-color: #4e8bc8;
+    transform: scale(1.05);
+}
+.returnTopBtn:active{    
+    transform: translateY(5px);
+}

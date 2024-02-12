@@ -1,0 +1,14 @@
+.imageGallery {
+  padding: 25px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* Три колонки з однаковою шириною */
+  grid-auto-rows: 420px;
+  grid-auto-flow: dense; /* dense режим розміщення, що заповнює порожні місця */
+  gap: 10px;
+}
+
+.imageGallery img {
+  width: 100%; /* Заповнюємо весь доступний простір в колонці */
+  height: 100%; /* Заповнюємо весь доступний простір в рядку */
+  object-fit: cover; /* Картинка зберігає свої пропорції і вписується в доступний простір, обрізаючи зайвий контент */
+}

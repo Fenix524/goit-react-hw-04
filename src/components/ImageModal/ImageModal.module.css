@@ -1,0 +1,8 @@
+.img {
+  max-width: 85vw;
+  max-height: 85vh;
+}
+.title{
+    text-transform: uppercase;
+    max-width: 100%;
+}

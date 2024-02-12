@@ -1,0 +1,17 @@
+.image {
+  padding: 10px;
+  padding-bottom: 40px;
+
+  background-color: #fff;
+  border-radius: 2px;
+  border: 1px solid #00000030;
+
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.image:hover{   
+  transform: scale(1.02) rotate(0.5deg);
+}
+.image:active{    
+  transform: translateY(5px);
+}

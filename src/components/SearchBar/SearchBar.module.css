@@ -1,0 +1,29 @@
+.wraper {
+  padding: 20px;
+  border-bottom: 2px solid #00000011;
+}
+.form {
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.form > * {
+    height: inherit;
+    border: 1px solid #0000000f;
+    padding: 0 15px;
+}
+.input {
+    border-radius: 10px 0px 0px 10px;
+    max-width: 450px;
+    flex-grow: 1;
+}
+.submitBtn {
+    width: 110px;
+
+    border-radius: 0px 10px 10px 0px;
+    background-color: #4580bb;
+
+    color: #fff;
+    cursor: pointer;
+}
