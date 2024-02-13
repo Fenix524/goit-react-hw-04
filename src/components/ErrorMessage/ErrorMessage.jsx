@@ -1,9 +1,9 @@
 import css from './ErrorMessage.module.css';
 
-  const ErrorMessage = () => {
+  const ErrorMessage = ({errorMessage}) => {
     return (
       <div className={css.errorMessage}>
-        There was an error, please try reloading the page!🥴
+        {errorMessage}
       </div>
     );
   };

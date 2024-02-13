@@ -12,15 +12,16 @@ const customStyles = {
   },
 };
 
-const ImageModal = ({ modalContent, modalIsOpen, modalClose }) => {
+const ImageModal = ({ modalContent, modalClose }) => {
   const { urls, alt_description } = modalContent;
   return (
     <div>
       <Modal
-        isOpen={modalIsOpen}
+        isOpen={true}
         onRequestClose={modalClose}
         style={customStyles}
         contentLabel="Example Modal"
+        appElement={document.getElementById("root")} // Встановлюємо елемент додатку для react-modal
       >
         <img className={css.img} src={urls.regular} alt={alt_description} />
       </Modal>

@@ -18,9 +18,7 @@ function App() {
 
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
-
-  const [modalIsOpen, setModalIsOpen] = useState(false);
-  const [modalContent, setModalContent] = useState();
+  const [modalContent, setModalContent] = useState(null);
 
   const [isError, setIsError] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -39,6 +37,8 @@ function App() {
   }, []);
 
   useEffect(() => {
+    if (!searchText) return;
+
     setLoading(true);
 
     fetchPhotos(searchText, currentPage)
@@ -64,17 +64,8 @@ function App() {
     setCurrentPage(1);
   }
 
-  function modalOpen() {
-    setModalIsOpen(true);
-  }
-
-  function modalClose() {
-    setModalIsOpen(false);
-  }
-
   function viewFullSizeImg(img) {
     setModalContent(img);
-    modalOpen();
   }
 
   function setNextPage() {
@@ -84,27 +75,30 @@ function App() {
   function scrollToTop() {
     window.scrollTo({
       top: 0,
-      behavior: "smooth"
+      behavior: "smooth",
     });
   }
-  
 
   return (
     <>
       <SearchBar onSubmit={handleFormSubmit} />
+
       {loading && <Loader />}
       {isError && <ErrorMessage />}
+
       <ImageGallery imagesArr={imagesArr} viewImg={viewFullSizeImg} />
       {modalContent && (
         <ImageModal
           modalContent={modalContent}
-          modalIsOpen={modalIsOpen}
-          modalClose={modalClose}
+          modalClose={() => setModalContent(null)}
         />
       )}
       {currentPage < totalPages && <LoadMoreBtn setNextPage={setNextPage} />}
+
       <Toaster position="bottom-left" reverseOrder={false} />
-      {scrollPosition > window.innerHeight && <ReturnTopBtn scrollToTop={scrollToTop}/>}
+      {scrollPosition > window.innerHeight && (
+        <ReturnTopBtn scrollToTop={scrollToTop} />
+      )}
     </>
   );
 }

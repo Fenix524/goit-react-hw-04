@@ -5,11 +5,15 @@ const SearchBar = ({ onSubmit }) => {
   const handleSubmit = (evt) => {
     evt.preventDefault();
     const form = evt.target;
-
-    form.searchText.value
-      ? onSubmit(form.searchText.value)
-      : toast.error("Fill in the search field!");
+    const searchValue = form.searchText.value;
+  
+    if (searchValue) {
+      onSubmit(searchValue);
+    } else {
+      toast.error("Fill in the search field!");
+    }
   };
+  
 
   return (
     <header className={css.wraper}>
